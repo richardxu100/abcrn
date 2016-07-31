@@ -22,8 +22,20 @@ export default class PersonShowScreen extends Component {
   }
 
   render() {
+    let personBackgroundColor;
+    switch(this.props.person.roomNumber) {
+      case 31:
+        personBackgroundColor = "coral";
+        break;
+      case 24:
+        personBackgroundColor = "skyblue";
+        break;
+      case 59:
+        personBackgroundColor = "lime";
+        break;
+    }
     return (
-      <ViewContainer style={{backgroundColor: 'dodgerblue'}}>
+      <ViewContainer style={{backgroundColor: personBackgroundColor}}>
         <StatusBarBackground style={{backgroundColor: 'honeydew'}}/>
 
         <TouchableOpacity onPress={() => this.props.navigator.pop()}>
@@ -60,7 +72,6 @@ export default class PersonShowScreen extends Component {
     })
   }
 }
-
 
 const styles = StyleSheet.create({
   personRow: {
